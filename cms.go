@@ -168,7 +168,7 @@ type CMS interface {
 // channel. It use given CMS as a client and the same message for all
 // recipeints.
 func Notify(c CMS, message *Message, pipe <-chan Recipient) error {
-	recs := make([]Recipient, 1024)
+	recs := make([]Recipient, 512)
 
 	for {
 		index, is_closed := MakeBatch(pipe, recs)
